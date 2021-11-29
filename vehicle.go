@@ -99,7 +99,7 @@ func main() {
 }
 
 func showRating(model string) {
-	var ratingFound bool
+	ratingFound := false
 	for m, r := range vehicleResult {
 		if m == model {
 			fmt.Printf("Total Ratings:%v\tPositive:%v\tNegative:%v\tNeutral:%v", r.feedbackTotal, r.feedbackPositive, r.feedbackNegative, r.feedbackNeutral)
@@ -111,17 +111,17 @@ func showRating(model string) {
 	}
 }
 
-func carDetails(c *car) {
+func (c *car) carDetails() {
 	fmt.Printf("\n%-5v: %-8v: %-12v ", "Car", c.make, c.model)
 	showRating(c.model)
 }
 
-func bikeDetails(b *bike) {
+func (b *bike) bikeDetails() {
 	fmt.Printf("\n%-5v: %-8v: %-12v ", "Bike", b.make, b.model)
 	showRating(b.model)
 }
 
-func truckDetails(t *truck) {
+func (t *truck) truckDetails() {
 	fmt.Printf("\n%-5v: %-8v: %-12v ", "Truck", t.make, t.model)
 	showRating(t.model)
 }
